@@ -228,6 +228,18 @@ JsonPath is class
 jsonPath() is method
 
 
+Class 7 Recap
+Create
+Retrieving
+Updating
+
+
+Base URI = Base URL
+Given keyword is used to prepare the request
+When keyword is used to hit the endpoint
+Then keyword is used for response or validation
+
+
 
 
 

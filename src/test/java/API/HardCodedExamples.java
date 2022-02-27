@@ -2,6 +2,7 @@ package API;
 
 import io.restassured.RestAssured;
 import io.restassured.internal.common.assertion.Assertion;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
@@ -17,7 +18,7 @@ import static io.restassured.RestAssured.given;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class HardCodedExamples {
     String baseURI = RestAssured.baseURI = "http://hrm.syntaxtechs.net/syntaxapi/api";
-    String token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NDU2NjMyMjMsImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTY0NTcwNjQyMywidXNlcklkIjoiMzQ3NyJ9.Yp21hA2AM-E2VgaRIoyeviSZlBg2zQzPB2E5TxlJ6Xg";
+    String token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NDU5MjU1MzQsImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTY0NTk2ODczNCwidXNlcklkIjoiMzQ3NyJ9.9wDl-AlPWtl2vbQx_0PAWa7b9f2odqyPb5qTE7vDOSQ";
     static String employee_ID;
     @Test
     public void bGetCreatedEmployee(){
@@ -90,7 +91,7 @@ public class HardCodedExamples {
     }
 
     @Test
-    public void dgetUpdatedEmployee(){
+    public void dGetUpdatedEmployee(){
         RequestSpecification preparedRequest = given().header("Content-Type", "application/json").
                 header("Authorization", token).
                 queryParam("employee_id",employee_ID);
@@ -103,4 +104,27 @@ public class HardCodedExamples {
         String middleName = response.jsonPath().getString("employee.emp_middle_name");
 
     }
+    @Test
+    public void eGetAllEmployees(){
+        RequestSpecification preparedRequest = given().header("Authorization", token).
+                header("Content-Type", "application/json");
+        Response response = preparedRequest.when().get("/getAllEmployees.php");
+
+        String allEmployees = response.prettyPrint();
+        //creating the object of jsonpath class
+        JsonPath js = new JsonPath(allEmployees);
+
+        //retrieving the number of employees in the body
+        int count = js.getInt("Employees.size()");
+
+        System.out.println(count);
+
+        //print all the employee ids from the response
+        for(int i=0; i<count; i++){
+            String employeeIDs = js.getString("Employees["+i+"].employee_id");
+            System.out.println(employeeIDs);
+        }
+
+    }
+
 }
