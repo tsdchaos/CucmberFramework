@@ -1,0 +1,194 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "user enters valid admin username and password",
+            "match": {
+              "location": "steps.LoginSteps.user_enters_valid_admin_username_and_password()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "user clicks on login button",
+            "match": {
+              "location": "steps.LoginSteps.user_clicks_on_login_button()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1000300,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "admin user is successfully logged in",
+            "match": {
+              "location": "steps.LoginSteps.admin_user_is_successfully_logged_in()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "user clicks on PIM option",
+            "match": {
+              "location": "steps.AddEmployeeSteps.user_clicks_on_pim_option()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "user clicks on Add employee button",
+            "match": {
+              "location": "steps.AddEmployeeSteps.user_clicks_on_add_employee_button()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2022-02-13T18:59:00.093Z",
+        "before": [
+          {
+            "result": {
+              "duration": 1998400,
+              "status": "passed"
+            },
+            "match": {
+              "location": "steps.Hooks.start()"
+            }
+          }
+        ],
+        "line": 47,
+        "name": "Front end and backend Testing",
+        "description": "",
+        "id": "add-employees;front-end-and-backend-testing",
+        "after": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "steps.Hooks.end(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 48,
+            "name": "user enters direct data \"Steven\" \"Olga\" and \"King\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Steven\"",
+                  "offset": 24
+                },
+                {
+                  "val": "\"Olga\"",
+                  "offset": 33
+                },
+                {
+                  "val": "\"King\"",
+                  "offset": 44
+                }
+              ],
+              "location": "steps.AddEmployeeSteps.user_enters_direct_data_and(java.lang.String,java.lang.String,java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1000300,
+              "status": "passed"
+            },
+            "line": 49,
+            "name": "capture the employee id",
+            "match": {
+              "location": "steps.AddEmployeeSteps.capture_the_employee_id()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 50,
+            "name": "user clicks on save button",
+            "match": {
+              "location": "steps.AddEmployeeSteps.user_clicks_on_save_button()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 51,
+            "name": "employee added successfully",
+            "match": {
+              "location": "steps.AddEmployeeSteps.employee_added_successfully()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 52,
+            "name": "query the information from backend",
+            "match": {
+              "location": "steps.QueryDatabaseSteps.query_the_information_from_backend()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 53,
+            "name": "verify the results from UR and Backend",
+            "match": {},
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@db"
+          }
+        ]
+      }
+    ],
+    "name": "Add employees",
+    "description": "",
+    "id": "add-employees",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/AddEmployee.feature",
+    "tags": []
+  }
+]
